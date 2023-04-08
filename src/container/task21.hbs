@@ -1,0 +1,111 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div class="card">
+    {{#with heading}}
+
+    {{#with main}}
+    <div class="card card-body m-3">
+        <h1>{{title}}</h1>
+        <p>{{text}}</p>
+        {{#with button_text}}
+        <div>
+            <button class="btn btn-primary mb-4">{{solid}}</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-primary">{{outline}}</button>
+        </div>
+        {{/with}}
+    </div>
+    {{/with}}
+
+
+    {{#with second}}
+    <div class="card card-body m-3">
+        <h2>{{title}}</h2>
+        <p>{{text}}</p>
+        {{#with button_text}}
+        <div>
+            <button class="btn btn-secondary mb-2">{{solid}}</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-secondary">{{outline}}</button>
+        </div>
+        {{/with}}
+    </div>
+    {{/with}}
+
+
+    {{#with subblock}}
+    <div class="card card-body m-3">
+        <h3>{{title}}</h3>
+        <p>{{text}}</p>
+        {{#with button_text}}
+        <div>
+            <button class="btn btn-dark mb-2">{{solid}}</button>
+        </div>
+        <div>
+            <button class="btn btn-outline-dark">{{outline}}</button>
+        </div>
+        {{/with}}
+    </div>
+    {{/with}}
+    {{/with}}
+</div>
+
+
+{{#with nested_display}}
+<div class="card mt-3">
+
+    <div class="display-1 ms-3">{{title}}</div>
+    {{#with children_display}}
+    <div class="card card-body m-3">
+        <div class="display-4">{{title}}</div>
+        <p>{{text}}</p>
+        <div>
+            <button class="btn btn-outline-warning text-center">{{button.text}}</button>
+        </div>
+    </div>
+    {{/with}}
+    <div class="ms-3 mb-3">
+        <h6>{{header_text}}</h6>
+
+        <button class="btn btn-info text-light">{{button.text}}</button>
+    </div>
+
+</div>
+{{/with}}
+
+{{#with paragraph}}
+<div class="card mt-3">
+
+    <div class="ms-4 mt-3">
+        <p class="text text-uppercase">{{title}}</p>
+        <p>{{text}}</p>
+    </div>
+    {{#with button}}
+    <div class="ms-3">
+        <button href="{{url}}" class="btn btn-outline-light text-primary">{{text}}</button>
+    </div>
+    {{/with}}
+
+    <div class="card card-body pb-0 m-3">
+        <ul>
+            {{#each list_name}}
+            <li>
+                <button href="{{url}}" class="btn btn-outline-light text-primary">{{text}}</button>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+{{/with}}
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/defaullt.hbs має вже структуру HTML
+--}}
