@@ -1,0 +1,203 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+{{!-- logo --}}
+
+<main>
+
+    {{!-- breadcrumb --}}
+
+    {{>breadcrumb}}
+
+
+    {{!-- <div class="row g-2">
+        {{#each breadcrumb}}
+        <div class="nav col">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a class="nav-link{{#unless this.url}} disabled {{/unless}}" href="{{this.url}}">
+                        {{this.name}} </a>
+                </li>
+            </ol>
+        </div>
+        {{/each}}
+    </div> --}}
+
+
+    {{!-- CARD - without tabs and list --}}
+
+    <div class="row g-6">
+        {{#with productData}}
+        <div class="col-6">
+            <div class="card mb-2">
+                <img class="card-img-top" src="{{img}}" alt="{{info.title}}">
+                <div class="card-body">
+                    {{#with info}}
+                    <h5 class="card-title">{{title}}</h5>
+                    <p>{{about}}</p>
+                    <h5>{{price}}</h5>
+                    {{#each category}}
+                    {{#if isHot}}
+                    <span class="bage text-bg-warning rounded-pill text-light m-2 px-2">{{name}}!</span>
+                    {{/if}}
+                    {{#if isNew}}
+                    <span class="bage text-bg-primary rounded-pill m-3 px-2">{{name}}</span>
+                    {{/if}}
+                    {{#if isBonus}}
+                    <span class="bage text-bg-primary rounded-pill m-3 px-2">{{name}}</span>
+                    {{/if}}
+                    {{/each}}
+                    {{/with}}
+                </div>
+            </div>
+        </div>
+
+
+        {{!-- without card TABS without list --}}
+
+        <div class="col-6">
+            {{#with item}}
+            <table class="table">
+                <thead>
+                    <tr>
+                        {{#each head}}
+                        <th>
+                            {{this}}
+                        </th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each body}}
+                    <tr>
+                        <td>{{this.[0]}}</td>
+                        <td>{{this.[1]}}</td>
+                        <td>{{this.[2]}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/with}}
+
+            {{!-- list --}}
+
+            <div>
+                {{#with param}}
+                <div class="card">
+                    <div class="card-header">
+                        <div>{{title}}</div>
+                    </div>
+                    <ul class="list-group list group-flush">
+                        {{#each list}}
+                        <li class="list-group-item">
+                            {{this}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/with}}
+            </div>
+
+            {{#with alert}}
+            {{#if isError}}
+            <div class="alert alert-danger mt-2">{{text}}</div>
+            {{/if}}
+            {{/with}}
+
+
+        </div>
+    </div>
+
+    {{!-- actionList color buttons --}}
+
+    <div class="card p-2">
+        <div>
+            {{#each actionList}}
+            {{#if isWarning}}
+            <button class="btn btn-warning text-light me-2">{{name}}</button>
+            {{/if}}
+            {{#if isError}}
+            <button class="btn btn-outline-danger me-2">{{name}}</button>
+            {{/if}}
+            {{#if isSuccess}}
+            <button class="btn btn-success text-light me-2">{{name}}</button>
+            {{/if}}
+            {{#if isGood}}
+            <button class="btn btn-outline-success me-2">{{name}}</button>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+    {{/with}}
+
+    <hr>
+
+    {{!-- other block --}}
+
+    {{#with goodsOtherBlock}}
+    <h2 class="text-center m-3">{{title}}</h2>
+
+    <div class="row" g-2>
+        {{#each cards}}
+        <div class="col-4">
+
+
+            {{>shopcard}}
+
+        </div>
+        {{/each}}
+
+
+    </div>
+    {{/with}}
+
+
+    <hr>
+
+    {{>shopaction}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/defaullt.hbs має вже структуру HTML
+--}}
