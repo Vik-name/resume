@@ -4,29 +4,8 @@
 --}}
 
 <main>
-    {{#with navigation}}
-    <div class="card">
 
-        <div class="row">
-            <div class="col-8">
-                <h1 class="ms-3">{{Logo}}</h1>
-            </div>
-
-            <div class="col-4">
-                <div class="nav mt-2">
-                    {{#each links}}
-                    <div>
-                        <a class="nav-link {{#if @last}} disabled {{/if}}" href="{{this.link}}">{{this.text}}</a>
-                    </div>
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-    </div>
-    {{/with}}
-
-    <hr>
-
+    {{!-- Black card --}}
 
     {{#with newsBlock}}
     <div class="display-6 text-center mb-5">{{title}}</div>
@@ -34,25 +13,14 @@
     <div class="row g-2">
         {{#each cards}}
         <div class="col-3">
-            <div class="card text-bg-dark">
-                <div class="card-header">
-                    <p>{{title}}
-                        {{#if isTop}}
-                        <span class="bage text-bg-danger rounded-pill m-2 px-2"> Top </span>
-                        {{/if}}
-                        {{#if isNew}}
-                        <span class="bage text-bg-success rounded-pill m-3 px-2"> Нова </span>
-                        {{/if}}
-                    </p>
-                </div>
-                <div class="card-body">
-                    <p>{{description}}</p>
-                </div>
-            </div>
+
+            {{>shoppost}}
+
         </div>
         {{/each}}
     </div>
     {{/with}}
+
 
     <hr>
 
@@ -76,22 +44,10 @@
     <div class="row g-2">
         {{#each cards}}
         <div class="col-4">
-            <div class="card mb-2">
-                <img class="card-img-top" src="{{image}}" alt="{{title}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{title}}
-                        {{#if isHot}}
-                        <span class="bage text-bg-warning rounded-pill m-2 px-2">HOT!</span>
-                        {{/if}}
-                        {{#if isNew}}
-                        <span class="bage text-bg-primary rounded-pill m-3 px-2">Нове</span>
-                        {{/if}}
-                    </h5>
-                    <p>{{description}}
-                    </p>
 
-                </div>
-            </div>
+
+            {{>shopcard}}
+
         </div>
         {{/each}}
         {{/with}}
@@ -118,7 +74,9 @@
 
         <hr>
 
-        {{#with service}}
+        {{>shopaction}}
+
+        {{!-- {{#with service}}
         <div class="card text-bg-success m-2">
             <div class="card-body text-center">
                 <h2 class="text-center ms-1">{{title}}</h2>
@@ -128,22 +86,8 @@
                 {{/each}}
             </div>
         </div>
-        {{/with}}
+        {{/with}} --}}
 
-        <hr>
-
-        {{#each footer}}
-        <div class="nav col-2">
-            <div>
-                {{#each this}}
-                <div>
-                    <a class="nav-link {{#if @last}} disabled {{/if}}" href="{{this.link}}">{{this.text}}</a>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-
-        {{/each}}
 
 
 
