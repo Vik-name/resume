@@ -1,0 +1,247 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+
+<div>
+    <h1>{{make}} {{model}}</h1>
+    {{year}} ({{color}})
+    <br>
+    <hr>
+
+    {{#with features}}
+    <div>
+        <p>feature</p>
+        <ul>
+            {{!-- interior --}}
+            {{#with interior}}
+            <li>
+                <p>interior</p>
+                <div>
+                    <ul>
+                        {{#with seats}}
+                        <li>
+                            <p>seats:</p>
+                            {{material}}<br>
+                            {{color}}<br>
+                            {{#if heated}}heated{{/if}}<br>
+                            {{#if ventilated}}ventilated{{/if}}
+                        </li>
+                        {{/with}}
+
+                        {{#with dashboard}}
+                        <li>
+                            <p>dashboard:</p>
+                            {{material}}<br>
+                            {{color}}<br>
+                            <p>display:</p>
+                            <div>
+                                <ul>
+                                    {{#with display}}
+                                    <li>
+                                        {{type}}<br>
+                                        {{size}}<br>
+                                        {{resolution}}<br>
+                                        {{#if touchscreen}}touchscreen{{/if}}
+                                    </li>
+                                    {{/with}}
+                                </ul>
+                            </div>
+                        </li>
+                        {{/with}}
+
+                        {{#with audio}}
+                        <li>
+                            <p>audio:</p>
+                            {{system}}<br>
+                            {{speakers}}<br>
+                            {{#if subwoofer}}subwoofer{{/if}}<br>
+                            {{#if bluetooth}}bluetooth{{/if}}<br>
+                            {{#if USB}}USB{{/if}}<br>
+                        </li>
+                        {{/with}}
+                    </ul>
+                </div>
+            </li>
+            {{/with}}
+            {{!-- exterior --}}
+            {{#with exterior}}
+            <li>
+                <p>exterior</p>
+                <div>
+                    <ul>
+                        {{#with wheels}}
+                        <li>
+                            <p>wheels:</p>
+                            {{size}}<br>
+                            {{type}}<br>
+                            {{color}}<br>
+                        </li>
+                        {{/with}}
+
+                        {{#with headlights}}
+                        <li>
+                            <p>head lights:</p>
+                            {{type}}<br>
+                            {{brightness}}<br>
+                            {{#if automatic}}automatic{{/if}}
+                        </li>
+                        {{/with}}
+
+                        {{#with sunroof}}
+                        <li>
+                            <p>sunroof:</p>
+                            {{type}}<br>
+                            {{size}}<br>
+                            {{#if automatic}}automatic{{/if}}<br>
+                        </li>
+                        {{/with}}
+                    </ul>
+                </div>
+            </li>
+            {{/with}}
+            {{!-- safety --}}
+            {{#with safety}}
+            <li>
+                <p>safety</p>
+                <div>
+                    <ul>
+                        {{#with airbags}}
+                        <li>
+                            <p>airbags:</p>
+                            {{front}}<br>
+                            {{side}}<br>
+                            {{knee}}<br>
+                            {{rear}}<br>
+                        </li>
+                        {{/with}}
+
+                        {{#with assistance}}
+                        <li>
+                            <p>assistance:</p>
+                            {{#if blind_spot_monitoring}}blind_spot_monitoring{{/if}}<br>
+                            {{#if rear_cross_traffic_alert}}rear_cross_traffic_alert{{/if}}<br>
+                            {{#if lane_departure_warning}}lane_departure_warning{{/if}}<br>
+                            {{#if adaptive_cruise_control}}adaptive_cruise_control{{/if}}<br>
+                            {{#if collision_warning}}collision_warning{{/if}}
+                        </li>
+                        {{/with}}
+
+
+                    </ul>
+                </div>
+            </li>
+            {{/with}}
+
+
+    </div>
+    {{/with}}
+
+    {{!-- engine --}}
+
+    {{#with engine}}
+    <p>engine</p>
+    <ul>
+        <li>
+            {{type}}<br>
+            {{displacement}}<br>
+            {{horsepower}}<br>
+            {{torque}}<br>
+            transmission:<br>
+            <div>
+                <ul>
+                    {{#with transmission}}
+                    <li>
+                        {{type}} {{gears}}
+                    </li>
+                    {{/with}}
+                </ul>
+            </div>
+        </li>
+    </ul>
+    {{/with}}
+
+    {{!-- fuel_economy --}}
+
+    {{#with fuel_economy}}
+    <p>fuel economy</p>
+    <ul>
+        <li>
+            city - {{city}}<br>
+            highway - {{highway}}<br>
+            combined - {{combined}}
+        </li>
+    </ul>
+    {{/with}}
+
+    {{!-- price --}}
+
+    {{#with price}}
+    <p>price</p>
+    <ul>
+        <li>
+            base - {{base}}<br>
+            destination - {{destination}}<br>
+            <p>options:</p>
+            <div>
+                <ul>
+                    {{#with options}}
+                    <li>
+                        navigation - {{navigation}}<br>
+                        moonroof - {{moonroof}}<br>
+                        premium paint - {{premium_paint}}<br>
+                    </li>
+                    {{/with}}
+                </ul>
+            </div>
+            total - {{total}}
+        </li>
+    </ul>
+    {{/with}}
+
+
+
+
+
+
+
+
+
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+{{!-- {{#with interior}}
+<li>
+    {{interior}}
+
+</li>
+{{/with}} --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/defaullt.hbs має вже структуру HTML
+--}}
