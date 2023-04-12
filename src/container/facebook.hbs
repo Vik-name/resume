@@ -1,0 +1,76 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+<div>
+    <div>
+        <h1>{{name}}</h1>
+    </div>
+
+    {{#each users}}
+    <div>
+        <ul>
+            <li>{{id}}. {{name}} ({{gender}}), {{age}}<br>
+                <p>friends:</p>
+            </li>
+            {{!-- 2 layer --}}
+            <div>
+                <ul>
+                    {{#each friends}}
+                    <li>{{id}}. {{name}} ({{gender}}), {{age}}<br>
+                        <p>friends:</p>
+
+                        {{!-- 3 layer --}}
+                        {{#each mutual_friends}}
+                        <div>
+                            <ul>
+                                <li>{{id}}. {{name}} ({{gender}}), {{age}}
+                                    <div>
+                                        {{#if mutual_friends}}
+                                        <p>mutal_friends:</p>
+                                        {{#each mutual_friends}}
+                                        <div>
+                                            {{id}}. {{name}} ({{gender}}), {{age}}
+                                        </div>
+                                        {{/each}}
+                                        {{/if}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        {{/each}}
+
+
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <p>groups:</p>
+            {{>facemembers}}
+
+
+            {{!-- last groups --}}
+            {{#each friends}}
+            <div>
+                {{>facemembers}}
+            </div>
+            {{/each}}
+
+
+        </ul>
+
+
+
+    </div>
+    {{/each}}
+
+</div>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/defaullt.hbs має вже структуру HTML
+--}}

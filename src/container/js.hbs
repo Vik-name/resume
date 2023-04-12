@@ -5,27 +5,17 @@
 
 
 <div>
-    <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    <h1>{{name}}</h1>
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <strong>{{history.founder}} ({{history.year}})<br></strong>
-                    {{description}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
+
+    <sections>
+        <h1>{{name}}</h1>
+        <p>{{description}}</p>
+        <p><b>{{history.founder}} ({{history.year}})</b></p>
+    </sections>
+
+    <hr>
+
     <div>
-        <span class="badge text-bg-primary">
-            <h4>types</h4>
-        </span>
+        <h3>types:</h3>
         <ul>
             {{#each types}}
             <li>
@@ -34,16 +24,15 @@
             {{/each}}
         </ul>
     </div>
+
     <hr>
+
     <div>
-        <span class="badge text-bg-primary">
-            <h4>syntax</h4>
-        </span>
+        <h3>syntax</h3>
+
         {{#with syntax}}
         <div>
-            <span class="badge text-bg-light">
-                <h5>variables</h5>
-            </span>
+            <h5>variables</h5>
             <div>
                 <ul>
                     {{#each variables}}
@@ -56,9 +45,7 @@
         </div>
 
         <div>
-            <span class="badge text-bg-light">
-                <h5>functions</h5>
-            </span>
+            <h5>functions</h5>
             <div>
                 <ul>
                     {{#each functions}}
@@ -69,10 +56,9 @@
                 </ul>
             </div>
         </div>
+
         <div>
-            <span class="badge text-bg-light">
-                <h5>conditionals</h5>
-            </span>
+            <h5>conditionals</h5>
             <div>
                 <ul>
                     {{#each conditionals}}
@@ -83,10 +69,9 @@
                 </ul>
             </div>
         </div>
+
         <div>
-            <span class="badge text-bg-light">
-                <h5>loops</h5>
-            </span>
+            <h5>loops</h5>
             <div>
                 <ul>
                     {{#each loops}}
@@ -97,10 +82,9 @@
                 </ul>
             </div>
         </div>
+
         <div>
-            <span class="badge text-bg-light">
-                <h5>classes</h5>
-            </span>
+            <h5>classes</h5>
             <div>
                 <ul>
                     {{#each classes}}
@@ -113,11 +97,11 @@
         </div>
         {{/with}}
     </div>
+
     <hr>
+
     <div>
-        <span class="badge text-bg-primary">
-            <h4>features</h4>
-        </span>
+        <h4>features</h4>
         <div>
             <ul>
                 {{#each features}}
@@ -128,24 +112,11 @@
             </ul>
         </div>
     </div>
+
     <hr>
+
     <div>
-        <span class="badge text-bg-primary">
-            <h4>features</h4>
-        </span>
-        <ul>
-            {{#each features}}
-            <li>
-                {{this}}
-            </li>
-            {{/each}}
-        </ul>
-    </div>
-    <hr>
-    <div>
-        <span class="badge text-bg-primary">
-            <h4>libraries</h4>
-        </span>
+        <h4>libraries</h4>
         <ul>
             {{#each libraries}}
             <li>
@@ -154,11 +125,11 @@
             {{/each}}
         </ul>
     </div>
+
     <hr>
+
     <div>
-        <span class="badge text-bg-primary">
-            <h4>tools</h4>
-        </span>
+        <h4>tools</h4>
         <ul>
             {{#each tools}}
             <li>
@@ -167,11 +138,11 @@
             {{/each}}
         </ul>
     </div>
+
     <hr>
+
     <div>
-        <span class="badge text-bg-primary">
-            <h4>community</h4>
-        </span>
+        <h4>community</h4>
         <ul>
             {{#each community}}
             <li>

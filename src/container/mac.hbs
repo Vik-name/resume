@@ -1,0 +1,125 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+
+<div>
+    <div>
+        <h1>{{name}}</h1>
+    </div>
+    <p>{{description}}</p>
+    <div>$ {{price}} (<i>{{category}}</i>)</div>
+
+    <hr>
+
+    {{#with features}}
+
+    <h3>processor:</h3>
+    {{#each processor}}
+    <div>
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+    </div>
+    {{/each}}
+
+    <h3>memory:</h3>
+    {{#each memory}}
+    <div>
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+    </div>
+    {{/each}}
+
+    <h3>storage:</h3>
+    {{#each storage}}
+    <div>
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+    </div>
+    {{/each}}
+
+    <h3>display:</h3>
+    {{#each display}}
+    <div>
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+    </div>
+    {{/each}}
+
+    <h3>graphics:</h3>
+    {{#each graphics}}
+    <div>
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+    </div>
+    {{/each}}
+
+    <h3>ports:</h3>
+    {{#each ports}}
+    <div>
+        {{type}} ({{count}})<br>
+
+        {{#if features}}
+        <h4>features:</h4>
+        {{/if}}
+        {{#each features}}
+        <div>
+            <ul>
+                <li>{{this}}</li>
+            </ul>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+
+    <h3>battery:</h3>
+    {{#each battery}}
+    <div>
+        <ul>
+            <li>{{this}}</li>
+        </ul>
+    </div>
+    {{/each}}
+
+    <h3>weight:</h3>
+    {{weight}}
+
+
+    <h3>dimensions:</h3>
+    {{#with dimensions}}
+
+    <div>
+        <ul>
+            <li>{{height}}</li>
+            <li>{{width}}</li>
+            <li>{{depth}}</li>
+        </ul>
+    </div>
+
+    {{/with}}
+
+    <h3>operating system:</h3>
+    {{operating_system}}
+
+    <h3>accessories:</h3>
+    {{#each accessories}}
+    <div>
+        <ul>
+            <li>{{name}} ($<i>{{price}}</i>)</li>
+        </ul>
+    </div>
+    {{/each}}
+    {{/with}}
+</div>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/defaullt.hbs має вже структуру HTML
+--}}

@@ -1,0 +1,17 @@
+{{#each groups}}
+<div>
+    <ul>
+        <li>{{id}}. {{name}} ({{description}})<br>
+            <p>members:</p>
+            {{#each members}}
+            <div>
+                <ul>
+                    <li>{{id}}. {{name}} ({{gender}}), {{age}}</li>
+                </ul>
+            </div>
+            {{/each}}
+        </li>
+    </ul>
+
+</div>
+{{/each}}
