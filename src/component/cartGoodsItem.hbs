@@ -1,0 +1,30 @@
+{{#each goodsBlock}}
+<block class="card card-body m-3">
+    <div class="row g-3">
+        <div class="col-2">
+            <img src="{{image}}" alt="{{name}}">
+        </div>
+        <div class="col-4">
+            <p>{{description}}</p>
+        </div>
+        <div class="col-2">
+            {{#with price}}
+            <p>{{title}}</p>
+            <h5>{{value}}</h5>
+            {{/with}}
+        </div>
+        <div class="col-2">
+            <p>{{amount}}</p>
+        </div>
+        <div class="d-flex flex-column col-2">
+            {{#each buttons}}
+            <div class="g-2 m-2">
+                {{#if isPrimary}}<button class="btn btn-primary">{{text}}</button>{{/if}}
+                {{#if isDanger}}<button class="btn btn-outline-danger">{{text}}</button>{{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    </div>
+</block>
+{{/each}}
