@@ -1,0 +1,43 @@
+{{#with userInfo}}
+<div>
+    <h3>{{title}}</h3>
+</div>
+
+{{#with profileData}}
+<block class="card card-body">
+    <div>
+        <h4>{{title}}</h4>
+    </div>
+    {{#with fullName}}
+    <div class="row g-3">
+        <div class="col-4">
+            <p>{{surname.title}}
+            <p>{{surname.value}}</p>
+        </div>
+        <div class="col-4">
+            <p>{{name.title}}</p>
+            <p>{{name.value}}</p>
+        </div>
+        <div class="col-4">
+            <p>{{middleName.title}}</p>
+            <p>{{middleName.value}}</p>
+        </div>
+    </div>
+    {{/with}}
+    {{#with otherInfo}}
+    <div class="row g-3">
+        <div class="col-4">
+            <p>{{birthday.title}}</p>
+            <p>{{birthday.value}}</p>
+        </div>
+        <div class="col-4">
+            <p>{{sex.title}}</p>
+            <p>{{sex.value}}</p>
+        </div>
+        <div class="col-4">
+            <p>{{language.title}}</p>
+            <p>{{language.value}}</p>
+        </div>
+    </div>
+    {{/with}}
+    {{/with}}

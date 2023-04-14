@@ -1,0 +1,208 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<main>
+
+    <h2>{{header}}</h2>
+    {{#with purchase}}
+    {{!-- navigation --}}
+    <div class="nav nav-tabs mb-3">
+        {{#each tabs}}
+        <div class="nav-item">
+            <a href="#" class="nav-link {{#if @first}} active {{/if}}">{{this}}</a>
+        </div>
+        {{/each}}
+    </div>
+
+    {{!-- text-form with buttons --}}
+    <div class="row g-2">
+        {{#with actionBlock}}
+        <div class="d-flex">
+
+            <div class="col-4 m-3">
+                <input class="form-control" placeholder="{{input.placeholder}}">
+            </div>
+
+            {{#each buttons}}
+            <div class="d-inline-flex flex-row col-2 m-2">
+                <div class="g-2 m-2">
+                    {{#if isSuccess}}
+                    <a href="{{link}}" alt="{{text}}" class="btn btn-success text-light">{{text}}</a>
+                    {{/if}}
+                    {{#if isOutline}}
+                    <a href="{{link}}" alt="{{text}}" class="btn btn-outline-success">{{text}}</a>
+                    {{/if}}
+                    {{#if isDanger}}
+                    <a href="{{link}}" alt="{{text}}" class="btn btn-outline-danger">{{text}}</a>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+            {{/with}}
+        </div>
+    </div>
+
+    <hr class="my-3">
+
+    {{!-- List with img --}}
+
+    {{>purchaseItem}}
+
+
+    {{/with}}
+
+
+    {{!-- Info List without img --}}
+
+    {{#with userInfo}}
+    <div>
+        <h3 class="my-4">{{title}}</h3>
+    </div>
+
+    {{#with profileData}}
+    <block class="card card-body pb-2">
+        <div>
+            <h4 class="mb-4">{{title}}</h4>
+        </div>
+
+        {{#with fullName}}
+        <div class="row g-3">
+            <div class="col-4 mb-3">
+                <p>{{surname.title}}
+                <h6>{{surname.value}}</h6>
+            </div>
+            <div class="col-4 mb-3">
+                <p>{{name.title}}</p>
+                <h6>{{name.value}}</h6>
+            </div>
+            <div class="col-4 mb-3">
+                <p>{{middleName.title}}</p>
+                <h6>{{middleName.value}}</h6>
+            </div>
+        </div>
+        {{/with}}
+        {{#with otherInfo}}
+        <div class="row g-3">
+            <div class="col-4 mb-3">
+                <p>{{birthday.title}}</p>
+                <h6>{{birthday.value}}</h6>
+            </div>
+            <div class="col-4 mb-3">
+                <p>{{sex.title}}</p>
+                <h6>{{sex.value}}</h6>
+            </div>
+            <div class="col-4 mb-3">
+                <p>{{language.title}}</p>
+                <h6>{{language.value}}</h6>
+            </div>
+        </div>
+        {{/with}}
+        {{/with}}
+
+        <div class="row g-3">{{#each buttons}}
+            <div class="d-flex flex-row col-1">
+                {{#if isPrimary}}<a class="btn btn-primary">{{text}}</a>{{/if}}
+            </div>
+            <div class="d-flex flex-row col-1">
+                {{#if isSecondary}}<a href="{{link}}" class="btn btn-outline-secondary">{{text}}</a>{{/if}}
+            </div>
+            <div class="d-flex flex-row col-1">
+                {{#if isDanger}}<a class="btn btn-outline-danger">{{text}}</a>{{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </block>
+
+    {{!-- List without img_2 --}}
+
+    {{#with recipients}}
+    <block class="card card-body mt-3 pb-2">
+        <div>
+            <h4 class="mb-4">{{title}}</h4>
+        </div>
+
+        <table class="table row g-3">
+            <tbody class="d-flex flex-row col">
+                {{#each users}}
+                <div>
+                    <tr class="col-4">
+                        <td class="d-flex flex-column col-12">
+                            <p>{{name}}</p>
+                            <p><b>{{phone}}</b></p>
+                        </td>
+                        <td>
+                            <a href="{{button.link}}" alt="{{button.text}}" class="btn btn-primary">{{button.text}}</a>
+                        </td>
+                    </tr>
+                </div>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </block>
+    {{/with}}
+
+
+    {{!-- <div class="row g-3"> --}}
+        {{#with contacts}}
+        <block class="card card-body mt-3 pb-2">
+            <div>
+                <h4 class="mb-4">{{title}}</h4>
+            </div>
+
+            <table class="table row g-3">
+                <tbody class="d-flex flex-column col">
+                    {{#with contactData}}
+                    <div>
+                        <tr class="d-flex flex-row col-4">
+                            <td class="d-flex flex-column col-12">
+                                <p>{{phone.title}}</p>
+                                <p><b>{{phone.value}}</b></p>
+                            </td>
+                            <td class="d-flex flex-column col-12">
+                                <p>{{additionalPhone.title}}</p>
+                                <p><b>{{additionalPhone.value}}</b></p>
+                            </td>
+                            <td class="d-flex flex-column col-12">
+                                <p>{{email.title}}</p>
+                                <p><b>{{email.value}}</b></p>
+                            </td>
+                            {{/with}}
+                        </tr>
+                        <tr class="d-flex flex-row">
+                            {{#each buttons}}
+                            <td>
+                                {{#if isPrimary}}<a href="{{link}}" alt="{{text}}"
+                                    class="btn btn-primary me-5">{{text}}</a>{{/if}}
+                            </td>
+                            <td>
+                                {{#if isSecondary}}<a href="{{link}}" alt="{{text}}"
+                                    class="btn btn-outline-secondary ms-5 me-5">{{text}}</a>{{/if}}
+                            </td>
+                            <td>
+                                {{#if isDanger}}<a href="{{link}}" alt="{{text}}"
+                                    class="btn btn-outline-danger ms-5">{{text}}</a>{{/if}}
+                            </td>
+                            {{/each}}
+                        </tr>
+                    </div>
+
+                </tbody>
+            </table>
+
+        </block>
+        {{/with}}
+
+        {{/with}}
+
+
+
+</main>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/defaullt.hbs має вже структуру HTML
+--}}
