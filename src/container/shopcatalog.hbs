@@ -1,0 +1,115 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+{{!-- logo --}}
+
+<main>
+
+    {{!-- Breadcrumb --}}
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {{#each breadcrumb}}
+            <li class="breadcrumb-item">
+                <a class="breadcrumb-item {{#if @last}}active{{/if}}" href="{{#if url}}{{url}}{{/if}}">{{name}}</a>
+            </li>
+            {{/each}}
+        </ol>
+    </nav>
+
+    <h1>{{header}}</h1>
+    {{!-- 3 select field --}}
+    <div class="row g-2">
+        {{#each sortBlock}}
+        <div class="col-3 mb-3">
+            <select class="form-select">
+                <option selected>{{placeholder}}</option>
+                {{#each options}}
+                <option value="{{value}}">{{text}}</option>
+                {{/each}}
+            </select>
+        </div>
+        {{/each}}
+
+        {{!-- left block --}}
+        {{#with filterBlock}}
+        {{!-- check field --}}
+        <div class="card col-4 p-2">
+            {{#with sellers}}
+            <label class="form-label">{{title}}</label>
+            {{#each list}}
+            <div class="form-check">
+                <label class="form-check-label">{{value}}</label>
+                <input type="checkbox" class="form-check-input">
+            </div>
+            {{/each}}
+            {{/with}}
+
+            <hr>
+            {{!-- text field with check field --}}
+            {{#with brands}}
+            <label class="form-label">{{title}}</label>
+            <input class="form-control my-3" placeholder="{{input.placeholder}}">
+            {{#each options}}
+            <div class="form-check">
+                <label class="form-check-label">{{value}}</label>
+                <input type="checkbox" class="form-check-input">
+            </div>
+            {{/each}}
+            {{/with}}
+
+            <hr>
+            {{!-- text field with button --}}
+            {{#with price}}
+            <label class="form-label">{{title}}</label>
+
+            <input class="form-control my-2" placeholder="{{range.from}}">
+            <input class="form-control mb-3" placeholder="{{range.to}}">
+            {{#with button}}
+            <a href="{{link}}" class="btn btn-outline-secondary col-5">{{text}}</a>
+            {{/with}}
+            {{/with}}
+
+            <hr>
+
+            {{!-- one check field --}}
+            {{#each filterList}}
+            <div>
+                <label class="form-label">{{title}}</label>
+                {{#each options}}
+                <div class="form-check">
+                    <label class="form-check-label">{{value}}</label>
+                    <input type="checkbox" class="form-check-input">
+                </div>
+                {{/each}}
+                <hr>
+            </div>
+            {{/each}}
+        </div>
+        {{/with}}
+
+
+        {{!-- for card with bage --}}
+
+        <div class="d-flex flex-wrap col-8">
+
+            {{>catalogItem}}
+
+        </div>
+
+
+    </div>
+
+    {{!-- green card --}}
+
+    {{>shopaction}}
+
+</main>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/defaullt.hbs має вже структуру HTML
+--}}
