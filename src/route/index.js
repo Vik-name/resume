@@ -33,18 +33,19 @@ var footer = {
 }
 
 // ================================================================
+// ++++++++++
 
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/', function (req, res) {
-  // res.render генерує нам HTML сторінку
+// router.get('/', function (req, res) {
+// res.render генерує нам HTML сторінку
 
-  //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
-  //                  ↑↑ сюди вводимо JSON дані
-})
-
+//            ↙ cюди вводимо назву файлу з сontainer
+// res.render('index', {})
+//                  ↑↑ сюди вводимо JSON дані
+// })
+// +++++++++++++
 // ================================================================
 
 //              ↙ тут вводимо шлях (PATH) до сторінки
@@ -3213,6 +3214,8 @@ router.get('/shopreview', function (req, res) {
     layout: 'shop',
 
     navigation: {
+      Logo: 'Logo',
+
       links: [
         {
           text: 'Home',
@@ -3506,6 +3509,8 @@ router.get('/shopcatalog', function (req, res) {
     layout: 'shop',
 
     navigation: {
+      Logo: 'Logo',
+
       links: [
         {
           text: 'Home',
@@ -3871,6 +3876,127 @@ router.get('/shopcatalog', function (req, res) {
   //                  ↑↑ сюди вводимо JSON дані
 })
 
+// ================================================================
+
+// ================================================================
+
+// router.get Створює нам один ентпоїнт
+
+router.get('/', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('index', {
+    layout: 'index',
+
+    name: 'Resume project',
+
+    Summary: [
+      {
+        text: 'Summary',
+        link: '/summary',
+      },
+      {
+        text: 'Education',
+        link: '/education',
+      },
+      {
+        text: 'Work',
+        link: '/work',
+      },
+      {
+        text: 'Skills',
+        link: '/skills',
+      },
+    ],
+
+    Bootstrap_task: [
+      {
+        text: 'task21',
+        link: '/task21',
+      },
+      {
+        text: 'task22',
+        link: '/task22',
+      },
+      {
+        text: 'task31',
+        link: '/task31',
+      },
+    ],
+
+    Pages: [
+      {
+        text: 'Person',
+        link: '/person',
+      },
+      {
+        text: 'Bio',
+        link: '/bio',
+      },
+      {
+        text: 'Program',
+        link: '/program',
+      },
+      {
+        text: 'Web',
+        link: '/web',
+      },
+      {
+        text: 'JS',
+        link: '/js',
+      },
+      {
+        text: 'Car',
+        link: '/car',
+      },
+      {
+        text: 'Mac',
+        link: '/mac',
+      },
+      {
+        text: 'Facebook',
+        link: '/facebook',
+      },
+    ],
+
+    Shop: [
+      {
+        text: 'Shophome',
+        link: '/shophome',
+      },
+      {
+        text: 'Shopproduct',
+        link: '/shopproduct',
+      },
+      {
+        text: 'Shopnews',
+        link: '/shopnews',
+      },
+      {
+        text: 'Shoporder',
+        link: '/shoporder',
+      },
+      {
+        text: 'Shopcart',
+        link: '/shopcart',
+      },
+      {
+        text: 'Shopprofile',
+        link: '/shopprofile',
+      },
+      {
+        text: 'Shopreview',
+        link: '/shopreview',
+      },
+      {
+        text: 'Shopcatalog',
+        link: '/shopcatalog',
+      },
+    ],
+  })
+  //                  ↑↑ сюди вводимо JSON дані
+})
 // ================================================================
 
 // Підключаємо роутер до бек-енду
